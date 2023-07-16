@@ -1,0 +1,31 @@
+{% extends "feed/base.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="..\..\static\direct_message\message.css">
+{% endblock styles %}
+{% block content %}
+
+<h1 class="users-headline"></h1><br>
+<h1 class="users-headline"></h1><br>
+
+    <div class="chat-border">
+    {% for user in object_list %}
+    <article class="media btn-contacts">
+              <img src="{{ user.profile.image.url }}" alt="{{ user.username }}" class="rounded-circle mr-3" height="50">
+            <div onclick="window.location.href='/direct/{{ user.id }}'">
+                {{ user.username }}
+            </div>
+    </article>
+    
+    {% endfor %}
+    
+    </div>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Your Contacts.</h3>
+          </div>
+        </div>
+      </div>
+{% endblock content %}
